@@ -5,7 +5,7 @@ function createPriorityQueue() {
   const lowPriorityQueue = createQueue();
   
   return {
-    enqueue(item, isHighPriority) {
+    enqueue(item, isHighPriority = false) {
       isHighPriority ? 
         highPriorityQueue.enqueue(item) :
         lowPriorityQueue.enqueue(item);
