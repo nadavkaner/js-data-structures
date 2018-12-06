@@ -1,3 +1,5 @@
+const { createQueue } = require('./queue');
+
 function createNode(key) {
   const neighbors = [];
   return {
@@ -38,10 +40,39 @@ function createGraph(directed = false) {
     print() {
       return nodes.map(({key, neighbors}) => 
         `${key} => ${neighbors.map(x => x.key).join(' ')}`).join('\n');
+    },
+    breadthFirstDepth(startingKey, visitFn) {
+      const startingNode = this.getNode(startingKey);
+      
+      const visited =   this.nodes.reduce((acc, node) => {
+        acc[node.key] = false;
+        return acc;
+      }, {});
+      
+      const queue = createQueue();
+      queue.enqueue(startingNode);
+
+      while(!queue.isEmpty()) {
+        const current = queue.dequeue();
+        if (!visited[current.key]) {
+          visited[current.key] = true;
+          visitFn(current);
+        }
+        
+        current.neighbors.forEach(node => {
+          if (!visited[node.key]) {
+            queue.enqueue(node)
+          }
+        });
+      }
     }
   }
 }
 
+/*
+  USAGE:
+*/
+/*
 const graph = createGraph(true);
 
 graph.addNode('Pikachu');
@@ -57,4 +88,29 @@ graph.addEdge('Wabaphet', 'Pikachu');
 graph.addEdge('Charmander', 'Balbazor');
 
 console.log(graph.print());
+*/
 
+const graph = createGraph(true);
+
+const nodes = ['a', 'b', 'c', 'd', 'e', 'f'];
+const edges = [
+  ['a', 'b'],
+  ['a', 'e'],
+  ['a', 'f'],
+  ['b', 'd'],
+  ['b', 'e'],
+  ['c', 'b'],
+  ['d', 'c'],
+  ['d', 'e']
+];
+
+nodes.forEach(node => {
+  graph.addNode(node);
+})
+edges.forEach(nodes => {
+  graph.addEdge(...nodes);
+})
+
+graph.breadthFirstDepth('a', node => {
+  console.log(node.key);
+})
