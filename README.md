@@ -6,3 +6,4 @@ Javascript data structures
 - Linked-List
 - Graph (Directed/Undirected)
 - Tree
+- Binary Tree (IN-ORDER, PRE-ORDER, POST-ORDER, LEVEL-ORDER)
