@@ -116,6 +116,8 @@ function createLinkedList() {
   }
 }
 
+exports.createLinkedList = createLinkedList;
+
 /*
   USAGE:
 */

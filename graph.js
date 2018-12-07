@@ -84,6 +84,8 @@ function createGraph(directed = false) {
   }
 }
 
+exports.createGraph = createGraph;
+
 /*
   USAGE:
 */
@@ -103,7 +105,6 @@ graph.addEdge('Wabaphet', 'Pikachu');
 graph.addEdge('Charmander', 'Balbazor');
 
 console.log(graph.print());
-*/
 
 const graph = createGraph(true);
 
@@ -129,3 +130,5 @@ edges.forEach(nodes => {
 graph.depthFirstSearch('a', node => {
   console.log(node.key);
 })
+
+*/

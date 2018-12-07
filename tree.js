@@ -33,6 +33,11 @@ function createTree(rootKey) {
   }
 }
 
+exports.createTree = createTree;
+
+/*
+USAGE:
+
 const dom = createTree('html');
 
 const head = dom.root.addChild('head');
@@ -49,3 +54,4 @@ const p = main.addChild('Main section');
 const copyright = footer.addChild(`Copyright ${new Date().getFullYear()}`);
 
 console.log(dom.print());
+*/

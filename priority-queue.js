@@ -33,6 +33,10 @@ function createPriorityQueue() {
   }
 }
 
+exports.createPriorityQueue = createPriorityQueue;
+/* 
+USAGE:
+
 const priorityQueue = createPriorityQueue();
 
 priorityQueue.enqueue('Fix a bug');
@@ -42,4 +46,4 @@ priorityQueue.enqueue('Do another feature');
 console.log(priorityQueue.dequeue());
 priorityQueue.enqueue('Emergency task!', true);
 console.log(priorityQueue.peek());
-
+*/

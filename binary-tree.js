@@ -59,6 +59,11 @@ const TRAVERSLAS = {
   }
 }
 
+exports.createBinaryNode = createBinaryNode;
+
+/*
+USAGE:
+
 function createBinaryTree(rootKey) {
   const root = createBinaryNode(rootKey);
 
@@ -91,3 +96,4 @@ const C = D.addLeft('C');
 const E = D.addRight('E');
 
 console.log(binaryTree.print('LEVEL_ORDER'));
+*/

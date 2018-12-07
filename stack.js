@@ -19,3 +19,5 @@ function createStack() {
     }
   }
 }
+
+exports.createStack = createStack;
