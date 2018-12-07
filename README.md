@@ -4,3 +4,4 @@ Javascript data structures
 - Priority-Queue
 - Stack
 - Linked-List
+- Grapg (Directed/Undirected)
