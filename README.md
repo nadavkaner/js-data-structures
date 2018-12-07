@@ -5,3 +5,4 @@ Javascript data structures
 - Stack
 - Linked-List
 - Graph (Directed/Undirected)
+- Tree
