@@ -43,11 +43,7 @@ function createGraph(directed = false) {
     },
     breadthFirstDepth(startingKey, visitFn) {
       const startingNode = this.getNode(startingKey);
-      
-      const visited =   this.nodes.reduce((acc, node) => {
-        acc[node.key] = false;
-        return acc;
-      }, {});
+      const visited = {};
       
       const queue = createQueue();
       queue.enqueue(startingNode);
@@ -65,6 +61,25 @@ function createGraph(directed = false) {
           }
         });
       }
+    },
+    depthFirstSearch(startingNodeKey, visitFn) {
+      const startingNode = this.getNode(startingNodeKey);
+      const visited = {};
+
+      function explore(node) {
+        if (visited[node.key]) {
+          return;
+        }
+
+        visitFn(node);
+        visited[node.key] = true;
+
+        node.neighbors.forEach(node => {
+          explore(node);
+        })
+      }
+
+      explore(startingNode);
     }
   }
 }
@@ -111,6 +126,6 @@ edges.forEach(nodes => {
   graph.addEdge(...nodes);
 })
 
-graph.breadthFirstDepth('a', node => {
+graph.depthFirstSearch('a', node => {
   console.log(node.key);
 })
