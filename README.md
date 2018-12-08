@@ -9,3 +9,4 @@ Javascript data structures
 - Binary Tree (IN-ORDER, PRE-ORDER, POST-ORDER, LEVEL-ORDER)
 - Array Sorting:
   - Bubble Sort
+  - Insertion Sort
