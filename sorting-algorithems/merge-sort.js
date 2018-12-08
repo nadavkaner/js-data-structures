@@ -22,10 +22,7 @@ function merge(left, right) {
     }
   }
 
-  const result = [...sorted, ...right, ...left];
-
-  console.log(result);
-  return result;
+  return [...sorted, ...right, ...left];
 }
 
 exports.mergeSort = mergeSort;
