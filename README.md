@@ -12,3 +12,4 @@ Javascript data structures
   - Insertion Sort  O(n^2)
   - Merge Sort  O(n log(n))
   - Quick Sort  Avg-Case: O(n log(n)) Worst-Case: O(n^2) - in case the chosen pivot is always the smallet or greatest
+- Circular Buffer
