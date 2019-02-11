@@ -28,7 +28,7 @@ function merge(left, right) {
 exports.mergeSort = mergeSort;
 
 // USAGE:
-
+// 
 // const arr = [7,3,1,5,10,4,20,6,13]
 
 // mergeSort(arr);
