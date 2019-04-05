@@ -1,4 +1,4 @@
-const { createQueue } = require('./queue');
+const { createQueue } = require("./queue");
 
 function createBinaryNode(key) {
   return {
@@ -15,7 +15,7 @@ function createBinaryNode(key) {
       this.right = node;
       return node;
     }
-  }
+  };
 }
 
 const TRAVERSLAS = {
@@ -44,7 +44,7 @@ const TRAVERSLAS = {
     const queue = createQueue();
     queue.enqueue(node);
 
-    while(!queue.isEmpty()) {
+    while (!queue.isEmpty()) {
       const current = queue.dequeue();
 
       visitFn(current);
@@ -57,7 +57,7 @@ const TRAVERSLAS = {
       }
     }
   }
-}
+};
 
 exports.createBinaryNode = createBinaryNode;
 
