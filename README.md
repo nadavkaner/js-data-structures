@@ -1,4 +1,4 @@
-Javascript data structures
+Javascript data structures and algorithems
 
 - Queue
 - Priority-Queue
