@@ -1,4 +1,4 @@
-function bubbleSort(array) {
+function bubbleSortWithWhile(array) {
   let swapped = false;
 
   do {
@@ -16,12 +16,32 @@ function bubbleSort(array) {
   return array;
 }
 
-exports.bubbleSort = bubbleSort;
+function bubbleSortWithSimpleFor(array) {
+  const copy = [...array];
+  let swapped;
+  let length = array.length;
+  for (let i = 0; i < length; i++) {
+    swapped = false;
+    
+    for (let j = 0; j < length - i - 1; j++) {
+      if (copy[j] > copy[j + 1]) {
+        [copy[j], copy[j + 1]] = [copy[j + 1], copy[j]];
+        swapped = true;
+      }
+    }
+    if (!swapped) {
+      break;
+    }
+  }
 
-/*
-USAGE:
+  return copy;
+}
+
+exports.bubbleSort = bubbleSortWithWhile;
+
+
+// USAGE:
 
 const arr = [7,3,1,5,10,4]
 
-bubbleSort(arr);
-*/
+console.log(bubbleSortWithSimpleFor(arr));
