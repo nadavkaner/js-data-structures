@@ -34,6 +34,9 @@ function hashTable(count) {
         array[hashedKey] = createLinkedList();
         array[hashedKey].push({ key, value });
       }
+    },
+    hasKey: function(key) {
+      const hashedKey = hashFunction(key);
     }
   };
 }
