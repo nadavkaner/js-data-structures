@@ -3,13 +3,13 @@ const { createLinkedList } = require("./linked-list");
 function hashTable(count) {
   const array = [];
 
-  function hashFunction(value) {
+  function _hash(value) {
     return value.length % count;
   }
 
   return {
     get: function(key) {
-      const hashedKey = hashFunction(key);
+      const hashedKey = _hash(key);
       const hashBucket = array[hashedKey];
 
       if (!hashBucket) {
@@ -26,7 +26,7 @@ function hashTable(count) {
       return undefined;
     },
     set: function(key, value) {
-      const hashedKey = hashFunction(key);
+      const hashedKey = _hash(key);
       const hashBucket = array[hashedKey];
       if (hashBucket) {
         hashBucket.push({ key, value });
@@ -36,7 +36,8 @@ function hashTable(count) {
       }
     },
     hasKey: function(key) {
-      const hashedKey = hashFunction(key);
+      const hashedKey = _hash(key);
+      return !!array[hashedKey];
     }
   };
 }
