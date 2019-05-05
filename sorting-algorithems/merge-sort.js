@@ -25,7 +25,7 @@ function merge(left, right) {
   return [...sorted, ...right, ...left];
 }
 
-exports.mergeSort = mergeSort;
+module.exports = mergeSort;
 
 // USAGE:
 // 
