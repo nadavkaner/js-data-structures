@@ -2,7 +2,7 @@ function createNode(value) {
   return {
     value,
     next: null
-  }
+  };
 }
 
 function createLinkedList() {
@@ -16,8 +16,7 @@ function createLinkedList() {
       if (this.head === null) {
         this.tail = node;
         this.head = node;
-      }
-      else {
+      } else {
         this.tail.next = node;
         this.tail = node;
       }
@@ -39,7 +38,7 @@ function createLinkedList() {
 
       let p = this.head;
 
-      while(p.next !== this.tail) {
+      while (p.next !== this.tail) {
         p = p.next;
       }
 
@@ -57,7 +56,7 @@ function createLinkedList() {
       let i = 0;
       let current = this.head;
 
-      while(i < index) {
+      while (i < index) {
         i++;
         current = current.next;
       }
@@ -83,7 +82,7 @@ function createLinkedList() {
       let current = this.head;
       let previous;
 
-      while(i < index) {
+      while (i < index) {
         i++;
         previous = current;
         current = current.next;
@@ -106,14 +105,32 @@ function createLinkedList() {
       const values = [];
       let current = this.head;
 
-      while(current) {
+      while (current) {
         values.push(current.value);
         current = current.next;
       }
-      
-      return values.join(' => ');
+
+      console.log(values.join(" => "));
+    },
+    reverse() {
+      if (this.length < 2) {
+        return;
+      }
+
+      let first = this.head;
+      this.tail = this.head;
+      let second = this.head.next;
+      while (second) {
+        const temp = second.next;
+        second.next = first;
+        first = second;
+        second = temp;
+      }
+
+      this.tail.next = null;
+      this.head = first;
     }
-  }
+  };
 }
 
 exports.createLinkedList = createLinkedList;
@@ -122,9 +139,10 @@ exports.createLinkedList = createLinkedList;
   USAGE:
 */
 // const linkedList = createLinkedList();
-// const values = ['a', 'b', 'c', 'd', 'e'];
-// const nodes = values.map(x => linkedList.push(x));
-
+// const values = [1, 5, 16, 88];
+// values.forEach(x => linkedList.push(x));
+// linkedList.reverse();
+// linkedList.print();
 // linkedList.pop();
 // console.log(linkedList.tail.value);
 // console.log(linkedList.delete(1));
