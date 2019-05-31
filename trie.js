@@ -41,7 +41,7 @@ class Trie {
       d += 1;
     }
 
-    if (curNode.value === null && key.length === 0) {
+    if (key.length === 0) {
       return d;
     } else {
       return -1;
@@ -51,4 +51,6 @@ class Trie {
 
 const trie = new Trie();
 trie.add("nadav");
-console.log(JSON.stringify(trie, null, 2));
+trie.add("nba");
+console.log(trie.search("nadav"));
+// console.log(JSON.stringify(trie, null, 2));
