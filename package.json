@@ -1,0 +1,22 @@
+{
+  "name": "js-data-structures",
+  "version": "1.0.0",
+  "description": "Javascript data structures and algorithems",
+  "main": "binary-search-tree.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nadavkaner/js-data-structures.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nadavkaner/js-data-structures/issues"
+  },
+  "homepage": "https://github.com/nadavkaner/js-data-structures#readme",
+  "devDependencies": {
+    "prettier": "^1.17.1"
+  }
+}
