@@ -39,16 +39,16 @@ class BinarySearchTree {
 
   lookup(value) {
     let currentNode = this.root;
-    while (true) {
-      if (!currentNode) {
-        return null;
-      } else if (currentNode.value === value) {
+    while (currentNode) {
+      if (currentNode.value === value) {
         return currentNode;
       } else {
         currentNode =
           value < currentNode.value ? currentNode.left : currentNode.right;
       }
     }
+
+    return null;
   }
 
   remove() {}
