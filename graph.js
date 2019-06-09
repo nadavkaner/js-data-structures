@@ -1,4 +1,4 @@
-const { createQueue } = require('./queue');
+const { createQueue } = require("./queue");
 
 function createNode(key) {
   const neighbors = [];
@@ -8,8 +8,15 @@ function createNode(key) {
     addNeighbor(node) {
       neighbors.push(node);
     }
-  }
+  };
 }
+
+/*
+  Graph can be implemented using 3 startegies:
+  1) Edge list: keep an array of the edges
+  2) Adjacency list: object with entry for each node with a list of adjacents 
+  3) Adjacency matrix: and adjacency matrix
+*/
 
 function createGraph(directed = false) {
   const nodes = [];
@@ -38,26 +45,30 @@ function createGraph(directed = false) {
       }
     },
     print() {
-      return nodes.map(({key, neighbors}) => 
-        `${key} => ${neighbors.map(x => x.key).join(' ')}`).join('\n');
+      return nodes
+        .map(
+          ({ key, neighbors }) =>
+            `${key} => ${neighbors.map(x => x.key).join(" ")}`
+        )
+        .join("\n");
     },
     breadthFirstDepth(startingKey, visitFn) {
       const startingNode = this.getNode(startingKey);
       const visited = {};
-      
+
       const queue = createQueue();
       queue.enqueue(startingNode);
 
-      while(!queue.isEmpty()) {
+      while (!queue.isEmpty()) {
         const current = queue.dequeue();
         if (!visited[current.key]) {
           visited[current.key] = true;
           visitFn(current);
         }
-        
+
         current.neighbors.forEach(node => {
           if (!visited[node.key]) {
-            queue.enqueue(node)
+            queue.enqueue(node);
           }
         });
       }
@@ -76,12 +87,12 @@ function createGraph(directed = false) {
 
         node.neighbors.forEach(node => {
           explore(node);
-        })
+        });
       }
 
       explore(startingNode);
     }
-  }
+  };
 }
 
 exports.createGraph = createGraph;
