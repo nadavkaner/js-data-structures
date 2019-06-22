@@ -1,4 +1,4 @@
-// Return the n-th fibo number
+// Return the n-th fibo number O(2^n)(exponential big o)
 function fiboRecursion(n) {
   if (n <= 1) {
     return n;
